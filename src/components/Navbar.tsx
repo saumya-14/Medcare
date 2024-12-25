@@ -1,5 +1,6 @@
 
 import Image from "next/image";
+import Link from "next/link";
 
 const Navbar = () => {
 
@@ -20,7 +21,9 @@ const Navbar = () => {
 
       {/* Login Button */}
       <button className="bg-[#252B61] text-white font-medium text-sm sm:text-base py-2 px-4 md:px-6 rounded-lg hover:bg-[#1F234F]">
+        <Link href="/login">
         Login
+        </Link>
       </button>
     </div>
   );

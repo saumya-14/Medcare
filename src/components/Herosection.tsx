@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 
 
 const Herosection = () => {
@@ -24,7 +25,8 @@ const Herosection = () => {
 
   {/* Consult Today Button */}
   <button className="bg-[#458FF6] text-white font-medium text-sm sm:text-base py-3 px-8 rounded-full hover:bg-blue-500 transition-all">
-    Consult Today
+    <Link href='/'>Consult Today</Link>
+    
   </button>
 </div>
        <div className="h-full w-1/2 mt-10">
