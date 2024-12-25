@@ -1,20 +1,34 @@
 import { NextRequest } from "next/server";
-import { connect } from "../dbConfig/db";
+import jwt from "jsonwebtoken";
 
-connect();
-
-export const getdata = async (req: NextRequest) => {
+export const getdata = (request: NextRequest) => {
   try {
-    const body = await req.json();
-    
-    const id = body.userid;
+   
+    const token = request.cookies.get("token")?.value || "";
 
-    if (!id) {
-      throw new Error("User ID not provided in the request body");
+   
+    if (!token) {
+      throw new Error("Token not provided");
     }
 
-    return id;
-  } catch (error) {
+  
+    const data: any = jwt.verify(token, process.env.JWT_KEY!);
+
+    const id = data.userid;
+
+    
+    if (!id) {
+      throw new Error("User ID not provided in the token");
+    }
+
+    return { id, token };
+  } catch (error: any) {
+  
+    if (error instanceof jwt.JsonWebTokenError) {
+      console.error("JWT Error:", error);
+      throw new Error("Invalid or expired token");
+    }
+
     console.error("Error extracting user ID:", error);
     throw new Error("Error extracting user ID");
   }

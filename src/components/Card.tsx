@@ -5,16 +5,18 @@ const Card = () => {
   return (
     <div className="flex flex-col sm:flex-row bg-white shadow-md rounded-lg overflow-hidden w-full max-w-3xl mx-auto">
     {/* Image Section */}
-    <div className="sm:w-1/3 h-48 sm:h-auto bg-gray-300">
-    <div className="w-full h-full">
+    <div className="sm:w-1/3 h-48 sm:h-auto flex justify-center items-center">
+    
   <Image
-    src="" // Replace with your image URL
+    src="/doctor.png"
     alt="Doctor"
-    layout="fill" // Ensures the image fills the container
-    objectFit="cover" // Ensures the image scales properly
-    className="rounded-md" // Optional: Add rounded corners if needed
+ 
+   width={100}
+   height={100}
+    objectFit="cover" 
+    className="rounded-md" 
   />
-</div>
+
     </div>
   
     {/* Content Section */}

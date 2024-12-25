@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import { unique } from 'next/dist/build/utils';
 
 const { Schema } = mongoose;
 
@@ -7,6 +8,11 @@ const patientSchema = new Schema({
   name: {
     type: String,
     required: true,
+  },
+  number:{
+   type:Number,
+   unique:true,
+   required:true
   },
   password: {
     type: String,
