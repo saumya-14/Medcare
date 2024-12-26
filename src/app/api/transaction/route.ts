@@ -48,6 +48,7 @@ export async function POST(req:NextRequest) {
      const transaction=new Transaction({
         patient_id: patient._id,
       patient_name: patient.name,
+      patient_number:patient.number,
       doctor_id: doctor._id,
       doctor_name: doctor.name,
       consultation_fee: doctor.consultation_fee,

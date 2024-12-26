@@ -25,7 +25,7 @@ export async function GET(request: Request) {
       return NextResponse.json({ message: "User ID not provided in the token" }, { status: 401 });
     }
 
-    return NextResponse.json({ message: "Token is valid", isLoggedIn: true });
+    return NextResponse.json({ message: "Token is valid", isLoggedIn: true,id });
 
   } catch (error) {
     console.error("JWT Verification Error:", error);

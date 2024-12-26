@@ -1,27 +1,20 @@
-import { NextRequest } from "next/server";
+import { NextRequest,NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
+import * as cookie from "cookie";
 
-export const getdata = (request: NextRequest) => {
+export const getdata = (req: NextRequest) => {
   try {
    
-    const token = request.cookies.get("token")?.value || "";
+     const cookieHeader = req.headers.get("cookie") || ""; 
+            const cookies = cookie.parse(cookieHeader); 
+            const token = cookies.token || ""; 
+            if(!token){
+                return NextResponse.json({ message: "Token not provided" }, { status: 401 });
+            }
+            const data: any = jwt.verify(token, process.env.JWT_KEY!);
+            const patientId = data.userid;
 
-   
-    if (!token) {
-      throw new Error("Token not provided");
-    }
-
-  
-    const data: any = jwt.verify(token, process.env.JWT_KEY!);
-
-    const id = data.userid;
-
-    
-    if (!id) {
-      throw new Error("User ID not provided in the token");
-    }
-
-    return { id, token };
+    return { patientId };
   } catch (error: any) {
   
     if (error instanceof jwt.JsonWebTokenError) {

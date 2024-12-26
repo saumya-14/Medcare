@@ -1,8 +1,36 @@
+'use client'
 import Card from '@/components/Card'
 import Navbar from '@/components/Navbar'
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+
+type Doctor = {
+  _id: string;
+  name: string;
+  specialization: string;
+  consultation_fee: number;
+  wallet_balance: number;
+  createdAt: string;
+  updatedAt: string;
+};
 
 const page = () => {
+  const [doccollection, setDoccollection] = useState<Doctor[]>([]);
+
+  useEffect(() => {
+    const fetchdoc = async () => {
+      try {
+        const res = await axios.get('/api/fetchdoct');
+        console.log("Fetched doctors:", res.data);
+        setDoccollection(res.data);
+      } catch (error) {
+        console.error("Error fetching doctors:", error);
+      }
+    };
+    fetchdoc();
+  }, []);
+
+  
   return (
     <div>
       <Navbar />
@@ -16,12 +44,9 @@ const page = () => {
 
       {/* Cards Section */}
       <div className="flex flex-col gap-10 px-4 sm:px-8 md:px-12 lg:px-20 py-10">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+      {doccollection.map((doctor) => (
+        <Card key={doctor._id} doctor={doctor} />
+      ))}
       </div>
     </div>
   )

@@ -56,6 +56,11 @@ const transactionSchema = new Schema(
       type: String,
       required: true,
     },
+    patient_number:{
+      type:Number,
+      required:true,
+      
+    },
     doctor_id: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Doctor',
