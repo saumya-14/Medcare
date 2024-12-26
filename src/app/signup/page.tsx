@@ -4,7 +4,8 @@ import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from 'next/navigation';
 
 const SignUpPage = () => {
@@ -26,14 +27,17 @@ const SignUpPage = () => {
         number,
         password,
       });
-      if (res.data.ok) {
+      if (res) {
         toast.success('Account created successfully! Redirecting to home...');
         setName('');
         setNumber('');
         setPassword('');
-        router.push('/');
+        setTimeout(()=>{
+          router.push('/');
+        },3000);
+        
       } else {
-        setError(res.data.message || 'Failed to create account.');
+        setError( 'Failed to create account.');
       }
     } catch (error: any) {
       setError(error.response?.data?.message || 'An error occurred. Please try again.');

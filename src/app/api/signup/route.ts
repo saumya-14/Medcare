@@ -55,7 +55,7 @@ export async function POST(req: Request) {
     // Set HTTP-only cookie with JWT
     const response = NextResponse.json(
       {
-        message: "Patient created successfully",
+        message: "User created successfully",
         patient: {
           id: newPatient._id,
           name: newPatient.name,

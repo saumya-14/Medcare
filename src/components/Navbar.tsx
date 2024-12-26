@@ -64,7 +64,7 @@ const Navbar = () => {
           <>
             {/* Transaction History */}
             <Link
-              href="/transaction-history"
+              href="/transaction"
               className="text-[#252B61] font-medium text-sm sm:text-base hover:underline"
             >
               Transaction History
