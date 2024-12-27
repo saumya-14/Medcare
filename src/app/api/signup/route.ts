@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 import { Patient } from "@/models/usermodel";
 import { connect } from "@/dbConfig/db";
 
-// Ensure database connection
+
 connect();
 
 export async function POST(req: Request) {

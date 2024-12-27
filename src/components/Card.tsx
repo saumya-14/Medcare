@@ -4,9 +4,7 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import jwt from "jsonwebtoken";
-import * as cookie from "cookie";
-import { getdata } from "@/helper/getdata";
+
 type Doctor = {
   _id: string;
   name: string;
@@ -41,7 +39,7 @@ const Card: React.FC<CardProps> = ({ doctor }) => {
         doctorid: doctor._id,
       });
       if (response.data.ok) {
-        toast.success("Transaction successful");
+        toast.success("Transaction successful,Reloding the page.....");
         setTimeout(() => {
           window.location.reload(); // Reload the page after successful transaction
         }, 5000); // Wait for toast to show before reload

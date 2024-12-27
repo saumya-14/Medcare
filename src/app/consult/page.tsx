@@ -1,6 +1,7 @@
 'use client'
 import Card from '@/components/Card'
 import Navbar from '@/components/Navbar'
+import Wallet from '@/components/Wallet'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
@@ -44,6 +45,7 @@ const page = () => {
 
       {/* Cards Section */}
       <div className="flex flex-col gap-10 px-4 sm:px-8 md:px-12 lg:px-20 py-10">
+        <Wallet/>
       {doccollection.map((doctor) => (
         <Card key={doctor._id} doctor={doctor} />
       ))}

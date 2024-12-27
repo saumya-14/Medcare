@@ -3,7 +3,8 @@ import { Doctor } from "@/models/usermodel";
 import { connect } from "@/dbConfig/db";
 
 
-export async function GET(req:NextRequest,res:NextResponse) {
+export async function GET(req:NextRequest,res:NextResponse, { params }: { params: { id: string } }) {
+
     if (req.method !== 'GET') {
         return NextResponse.json({ message: 'Method Not Allowed' });
       }

@@ -64,18 +64,18 @@ const Navbar = () => {
           <>
             {/* Transaction History */}
             <Link
-              href="/transaction"
+              href="/history"
               className="text-[#252B61] font-medium text-sm sm:text-base hover:underline"
             >
               Transaction History
             </Link>
-            {/* Wallet */}
             <Link
-              href="/wallet"
+              href="/consult"
               className="text-[#252B61] font-medium text-sm sm:text-base hover:underline"
             >
-              Wallet
+              Consult
             </Link>
+           
             {/* Logout Button */}
             <button
               onClick={handleLogout}

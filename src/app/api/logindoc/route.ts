@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { Doctor } from '@/models/usermodel';
 import { connect } from '@/dbConfig/db';
 
-// Connect to the database
+
 connect();
 
 export async function POST(req: Request) {

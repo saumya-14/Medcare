@@ -1,9 +1,9 @@
 'use client'
-import Navbar from '@/components/Navbar'
+
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
-const page = () => {
+const Wallet = () => {
     const [walletBalance, setWalletBalance] = useState<number | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -27,8 +27,8 @@ const page = () => {
     },[])
   return (
     <div>
-      <Navbar />
-      <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+     
+      <div className="flex flex-col items-center justify-center ">
         {loading ? (
           <div className="text-lg font-medium text-blue-500">Loading...</div>
         ) : error ? (
@@ -50,4 +50,4 @@ const page = () => {
 };
   
 
-export default page
+export default Wallet;

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { connect } from "../../../dbConfig/db";
 import { Patient, Transaction, Doctor } from "../../../models/usermodel";
-import { getdata } from "../../../helper/getdata";
+
 connect();
 
 

@@ -1,10 +1,10 @@
-// /src/app/api/token/route.ts
+
 
 import { NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
-import * as cookie from "cookie";  // Updated import
+import * as cookie from "cookie"; 
 
-// Export a named handler for GET requests
+
 export async function GET(request: Request) {
   try {
     // Parse cookies from the request header
