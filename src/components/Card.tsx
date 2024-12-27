@@ -97,11 +97,11 @@ const Card: React.FC<CardProps> = ({ doctor }) => {
         Consultation Fee:{" "}
         {isdiscounted ? (
           <>
-            <span className="line-through text-red-500">${doctor.consultation_fee}</span>{" "}
-            <span className="text-blue-600">${discountedFee}</span>
+            <span className="line-through text-red-500">₹{doctor.consultation_fee}</span>{" "}
+            <span className="text-blue-600">₹{discountedFee}</span>
           </>
         ) : (
-          <span className="text-blue-600">${doctor.consultation_fee}</span>
+          <span className="text-blue-600">₹{doctor.consultation_fee}</span>
         )}
       </p>
 
